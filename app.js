@@ -10,7 +10,7 @@ const users = require('./routes/users');
 
 // Set up mongoose
 const mongoose = require('mongoose');
-// You need to connect to your MongoDB here
+mongoose.connect("mongodb://127.0.0.1/user-management");
 
 const app = express();
 

@@ -4,8 +4,8 @@ const UserModel = Backbone.Model.extend({
   urlRoot: "/users",
   idAttribute: "_id",
 
-  initialize(options){
-    this.on("change", () => {
+  initialize(){
+    this.on("change", function(item){
       this.save();
     });
   }

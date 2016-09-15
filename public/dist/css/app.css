@@ -20,9 +20,27 @@ time, mark, audio, video {
 
 .user-list {
   list-style-type: none; }
+  .user-list .user.activated {
+    background-color: #99FFCC; }
+  .user-list .user:not(.activated) {
+    background-color: #F4F4F4; }
   .user-list .user {
-    background-color: green;
-    height: 150px; }
+    height: 50px;
+    padding: 5px 10px;
+    display: block; }
     .user-list .user img {
-      height: 80%;
-      width: 100px; }
+      height: 100%;
+      width: auto; }
+    .user-list .user .name:hover {
+      color: #FFFFFF; }
+    .user-list .user .name {
+      color: #000000;
+      font-style: none;
+      font-size: 25px;
+      text-decoration: none; }
+    .user-list .user .activated {
+      float: right; }
+
+.profile .profile-img {
+  height: 30vh;
+  width: auto; }

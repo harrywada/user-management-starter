@@ -3,21 +3,44 @@
 .user-list{
   list-style-type: none;
 
+  .user.activated{
+    background-color: #99FFCC;
+  }
+
+  .user:not(.activated){
+    background-color: #F4F4F4;
+  }
+
   .user{
-    background-color: green;
-    height: 150px;
+    height: 50px;
+    padding: 5px 10px;
+    display: block;
 
     img{
-      height: 80%;
-      width: 100px;
+      height: 100%;
+      width: auto;
+    }
+
+    .name:hover{
+      color: #FFFFFF;
     }
 
     .name{
-
+      color: #000000;
+      font-style: none;
+      font-size: 25px;
+      text-decoration: none;
     }
 
-    .email{
-
+    .activated{
+      float: right;
     }
+  }
+}
+
+.profile{
+  .profile-img{
+    height: 30vh;
+    width: auto;
   }
 }

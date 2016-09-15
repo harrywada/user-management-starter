@@ -31,8 +31,8 @@ const UserModel = Backbone.Model.extend({
   urlRoot: "/users",
   idAttribute: "_id",
 
-  initialize(options) {
-    this.on("change", () => {
+  initialize() {
+    this.on("change", function (item) {
       this.save();
     });
   }
@@ -94,15 +94,35 @@ const UserItemView = Backbone.View.extend({
       <span><%= user.get('name') %></span>
     </a>
     <span class="email"><%= user.get('email') %></span>
-    <input type="checkbox" <% if(user.get('activated')){ %> checked <% } %>/>
+    <input class="activated" type="checkbox" <% if(user.get('activated')){ %> checked <% } %>/>
   `),
+
+  events: {
+    "click input[type='checkbox']": "toggleActivated"
+  },
 
   initialize() {
     this.listenTo(this.model, "sync", this.render);
   },
 
+  toggleActivated(e) {
+    e.preventDefault();
+    if (this.model.get("activated")) {
+      this.model.set("activated", "false");
+    } else {
+      this.model.set("activated", "true");
+    }
+  },
+
   render() {
     this.$el.html(this.template({ user: this.model }));
+
+    if (this.model.get("activated")) {
+      this.$el.addClass("activated");
+    } else {
+      this.$el.removeClass("activated");
+    }
+
     return this;
   }
 });
@@ -116,7 +136,7 @@ const Backbone = require("backbone");
 const UserProfileView = Backbone.View.extend({
   el: '<div class="profile"></div>',
   template: _.template(`
-    <img src="<%= user.get('imageURL') %>" alt="Profile Image" />
+    <img class="profile-img" src="<%= user.get('imageURL') %>" alt="Profile Image" />
     <div class="info">
       <label class="name">Name: <%= user.get('name') %></label>
       <label class="email">Email: <%= user.get('email') %></label>

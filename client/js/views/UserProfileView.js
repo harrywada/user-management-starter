@@ -4,7 +4,7 @@ const Backbone = require("backbone");
 const UserProfileView = Backbone.View.extend({
   el: '<div class="profile"></div>',
   template: _.template(`
-    <img src="<%= user.get('imageURL') %>" alt="Profile Image" />
+    <img class="profile-img" src="<%= user.get('imageURL') %>" alt="Profile Image" />
     <div class="info">
       <label class="name">Name: <%= user.get('name') %></label>
       <label class="email">Email: <%= user.get('email') %></label>

@@ -30,7 +30,7 @@ time, mark, audio, video {
     display: block; }
     .user-list .user img {
       height: 100%;
-      width: auto; }
+      width: 50px; }
     .user-list .user .name:hover {
       color: #FFFFFF; }
     .user-list .user .name {
